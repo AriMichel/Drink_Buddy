@@ -29,9 +29,7 @@ urlpatterns = [
     path("login/", views.loginuser, name='loginuser'),
     path("landing/", views.landing_page, name='landing_page'),
     path('response/', views.response_page, name= 'response_page'),
-    path('blog/', views.blog, name= 'blog'),
-    path('search/', views.search, name= 'search'),
-    path('educational/', views.educational, name= 'educational'),
-    path('reviews/', views.reviews, name= 'reviews'),
+    path('Educational/', include('Educational.urls')),
+    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

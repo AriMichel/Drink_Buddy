@@ -1,0 +1,26 @@
+{% extends 'drink_service/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<h1 id="blogtitle" class="font-weight-bold text-center">Insights</h1>
+
+<!-- <h3 class="text-center mb-5">Drink Buddy has written {{ blogs.count }} Educational Stuff{{ blogs.count|pluralize }}</h3> -->
+
+{% for Insight in Insights %}
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+    <a href="{% url 'Educational:detail' Insight.id %}">
+      <h2>{{ Insight.title }}</h2>
+    </a>
+    <h5 class="text-muted">{{ Insight.date|date:'M d Y'|upper }}</h5>
+    <h4>{{ Insight.description|striptags|truncatechars:100 }}</h4>
+  </div>
+
+ 
+</div>
+{% endfor %}
+
+{% endblock %}
