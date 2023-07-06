@@ -1,4 +1,4 @@
-{% extends 'home/base.html' %}
+{% extends 'drink_service/base.html' %}
 {% load static %}
 {% block content %}
 <br>
@@ -11,7 +11,7 @@
 <form method="post" action="{% url 'landing_page' %}">
     {% csrf_token %}
     <label for="location">Enter your location:</label>
-    <input type="text" name="location" id="location" required>
-    <button type="submit">Submit</button>
+    <input type="text" name="location" id="location" required class="input-style">
+    <button class = 'buttons' type="submit">Submit</button>
 </form>
 {% endblock %}
