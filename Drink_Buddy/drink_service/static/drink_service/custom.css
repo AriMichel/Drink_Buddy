@@ -4,13 +4,14 @@
 .navbar-nav .nav-link:hover {
     color: rgba(0,0,0,.5) !important;
 }
+
 body {
-    background-color: rgb(211, 226, 226);
-    font-family: 'Lato', sans-serif;
-    background-image: url("background1.jpg");
-    background-size: cover;
-    
+  font-family: 'Lato', sans-serif;
+  background-image: url("Educational_page.jpg");
+  background-size: cover;
+     
 }
+
 html, body {
     height: 100%;                   /* Set the height of HTML and body to 100% */
     margin: 10;                      /* Remove default margin */
@@ -57,6 +58,12 @@ html, body {
     font-size: 20px;        /* Adjust the font size to 20 pixels */
   }
 /* Styles for the background image */
+
+.heading{
+  font-style: oblique;
+  text-align: center;
+  
+}
 
 
 

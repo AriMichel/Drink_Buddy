@@ -36,7 +36,7 @@ def loginuser(request):
             return render(request,'drink_service/loginuser.html', {'form':AuthenticationForm(), 'error': 'Username and password does not same'})
         else:
             login(request, user)
-            return redirect('home')
+            return redirect('premium')
 
 def landing_page(request):
     if request.method == 'POST':
@@ -127,15 +127,10 @@ def get_matching_recipes(temperature, local_hour):
     recipes = Drink.objects.filter(timeofday=time_range, temperatureoflocation=temperature_range)[:3]
     return recipes
 
+def premium(request):
+    Drink = Drinks.objects.all()
+    return render(request, 'drink_service/premium.html', {'Drink': Drink})
 
-def blog(request):
-    return render(request, 'drink_service/blog.html')
 
-def search(request):
-    return render(request, 'drink_service/search.html')
 
-def educational(request):
-    return render(request, 'drink_service/educational.html')
 
-def reviews(request):
-    return render(request, 'drink_service/reviews.html')
