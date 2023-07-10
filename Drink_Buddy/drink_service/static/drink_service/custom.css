@@ -7,8 +7,7 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  background-image: url("Educational_page.jpg");
-  background-size: cover;
+  
      
 }
 
@@ -65,7 +64,10 @@ html, body {
   
 }
 
-
+footer{
+  text-align: center;
+  padding-top: 700px;
+}
 
 
 

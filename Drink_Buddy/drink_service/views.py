@@ -21,7 +21,7 @@ def signup(request):
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('home')
+                return redirect('premium')
             except IntegrityError:
                 return render(request,'home/signup.html',{'form':UserCreationForm(), 'error':'That username already taken please choose another username'})
         else:
@@ -43,7 +43,6 @@ def landing_page(request):
         location = request.POST.get('location')
         UserLocation.objects.create(location=location)
         return redirect('response_page')
-    
     return render(request, 'drink_service/landing_page.html')
 
 def response_page(request):
@@ -128,8 +127,7 @@ def get_matching_recipes(temperature, local_hour):
     return recipes
 
 def premium(request):
-    Drink = Drinks.objects.all()
-    return render(request, 'drink_service/premium.html', {'Drink': Drink})
+    return render(request, 'drink_service/premium.html')
 
 
 
