@@ -10,11 +10,9 @@
     <link rel="stylesheet" href="{% static 'drink_service/custom.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link rel="icon" type="image/jpg" href="{% static 'drink_service/drink.jpg' %}">
-    
     <title>Drink Buddy</title>
   </head>
   <body>
-  <!-- <img src="{% static 'drink_service/background1.jpg' %}" alt="background_image"> -->
   <nav id="topNav" class="navbar navbar-expand-md navbar-light">
     <div class="container">
       <a class="navbar-brand" href="{% url 'home' %}">
@@ -24,28 +22,10 @@
       <div class="collapse navbar-collapse text-center" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'landing_page' %}">Start</a>
+            <a class="nav-link" href="{% url 'landing_page' %}">About us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'loginuser' %}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}" target="_blank">Sign-out</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog' %}" target="_blank">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'search' %}" target="_blank">Search</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'educational' %}" target="_blank">Educational</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'reviews' %}" target="_blank">Reviews</a>
           </li>  
         </ul>
       </div>

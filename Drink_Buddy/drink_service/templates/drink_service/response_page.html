@@ -30,21 +30,17 @@
     <p>{{ recipe.name }}</p>
     <p>{{ recipe.ingredients }}</p>
     <p>{{ recipe.recipe }}</p>
-
     {% endfor %}
     <br>
-    
-    
-
 </body>
 <br>
-    <form method="post" action="{% url 'landing_page' %}">
-        {% csrf_token %}
-        <h1>Find another Location: </h1>
-        <br>
-        <label for="location">Enter your location:</label>
-        <input type="text" name="location" id="location" required class="input-style">
-        <button class = 'buttons' type="submit">Submit</button>
-    </form>
+
+<div class="text-center">
+    <b>Need more suggestions?</b> 
+    <a href="{% url 'loginuser' %}">     Login here</a>
+</div>
+
+<br>
+<br>
 {% endblock %}
 </html>
