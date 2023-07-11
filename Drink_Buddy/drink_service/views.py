@@ -23,9 +23,9 @@ def signup(request):
                 login(request, user)
                 return redirect('premium')
             except IntegrityError:
-                return render(request,'home/signup.html',{'form':UserCreationForm(), 'error':'That username already taken please choose another username'})
+                return render(request,'drink_service/signup.html',{'form':UserCreationForm(), 'error':'That username already taken please choose another username'})
         else:
-            return render(request,'home/signup.html',{'form':UserCreationForm(), 'error':'Password did not match'})
+            return render(request,'drink_service/signup.html',{'form':UserCreationForm(), 'error':'Password did not match'})
         
 def loginuser(request):
     if request.method == "GET":
@@ -128,7 +128,3 @@ def get_matching_recipes(temperature, local_hour):
 
 def premium(request):
     return render(request, 'drink_service/premium.html')
-
-
-
-
