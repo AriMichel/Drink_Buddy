@@ -1,0 +1,19 @@
+{% extends 'drink_service/premium_base.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<h1>Welcome to Drink Buddy Premium! </h1>
+<br>
+
+<p>You can search here more drinks according to location </p>
+<br>
+<br>
+
+<form method="post" action="{% url 'landing_page' %}">
+    {% csrf_token %}
+    <label for="location">Enter your location:</label>
+    <input type="text" name="location" id="location" required>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

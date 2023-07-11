@@ -1,0 +1,23 @@
+{% extends 'drink_service/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- <h1>Welcome to Drink Buddy App! </h1> -->
+
+<!-- <p>This app will suggest you Drinks,Coffee,Tea according to weather. </p> -->
+<br>
+<br>
+<br>
+
+<form method="post" action="{% url 'landing_page' %}">
+    {% csrf_token %}
+    <label for="location">Enter your location:</label>
+    <input type="text" name="location" id="location" required>
+    <button type="submit">Submit</button>
+</form>    
+
+{% endblock %} 
+
+
+
+
