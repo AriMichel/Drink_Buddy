@@ -1,0 +1,20 @@
+{% extends "drink_service/premium_base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h1 class="text-center mt-5" id="blogdetailtitle">{{ Insight.title }}</h1>
+
+<h5 class="text-center text-muted mb-5">{{ Insight.date|date:'F jS Y' }}</h5>
+<hr>
+
+{{ Insight.description|safe }}
+<br>
+<br>
+
+
+<a href="{{ blog.url }}">Link to Wikipedia</a>
+
+
+{% endblock %}

@@ -13,11 +13,13 @@
     
     <title>Drink Buddy</title>
   </head>
+
   <body>  
   <nav id="topNav" class="navbar navbar-expand-md navbar-light">
     <div class="container">
       <a class="navbar-brand" href="{% url 'home' %}">
         <img src="{% static 'drink_service/drink.jpg' %}" width="40" height="40" class="d-inline-block align-top" alt="Drink_Buddy's Logo">
+
         <span>Drink Buddy</span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +33,11 @@
           <li class="nav-item">
             <a class="nav-link" href="">Search</a>
           </li>
-<!-- educational content goes here. -->
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'Educational:all_educational' %}" target="_blank">Educational</a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="{% url 'home' %}" target="_blank">Sign-out</a>
           </li>        
@@ -59,3 +65,4 @@
 
   </body>
 </html>
+

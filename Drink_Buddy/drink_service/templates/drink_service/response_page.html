@@ -9,6 +9,7 @@
 {% block content %}
     
 <body>
+
     <h1>Response Page</h1>
     <h2>Location: {{ location }}</h2>
     
@@ -25,6 +26,7 @@
     <h2>Here are your suggestions:</h2>
     <br>
     <br>
+
     {% for recipe in recipes %}
     <img src="{{ recipe.imagefile.url }}" alt="">
     <p>{{ recipe.name }}</p>

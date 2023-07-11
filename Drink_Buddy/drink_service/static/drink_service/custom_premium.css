@@ -23,7 +23,7 @@ html, body {
     margin: 0;                      /* Remove default margin */
     padding: 0;                     /* Remove default padding */
     color: rgba(0, 0, 0, 0.782);     /* Set the text color */
-  }
+}
 
 /* Styles for the navigation links */
 .navbar-nav .nav-link {
@@ -36,6 +36,7 @@ html, body {
     transition: transform 0.3s;     /* Add transition for smooth hover effect on transform */
   }
 
+
 /* Styles for the navigation links on hover */
 .navbar-nav .nav-link:hover {
     background-color: rgba(243, 247, 5, 0.409); /* Change background color on hover */
@@ -43,10 +44,12 @@ html, body {
     /* Add any other styles you want for the hover effect */
 }
 
+
 /* Styles for the navbar */
 .navbar {
     background-color: rgba(181, 247, 224, 0.551); /* Set the background color for the navbar */
   }
+
 
 /* Styles for the navbar brand */
 .navbar-brand {
@@ -66,6 +69,7 @@ html, body {
     color: #000;            /* Set the text color to black */
     font-size: 20px;        /* Adjust the font size to 20 pixels */
   }
+
 
   /* Styles for the username welcome message for Premium account */
 .username{
@@ -108,3 +112,4 @@ html, body {
   margin-left: 12%;
   margin-right: 12%;
 }
+

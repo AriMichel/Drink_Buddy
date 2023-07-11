@@ -30,5 +30,6 @@ urlpatterns = [
     path("landing/", views.landing_page, name='landing_page'),
     path('response/', views.response_page, name= 'response_page'),
     path('premium/', views.premium, name= 'premium'),
-    
+    path('Educational/', include('Educational.urls')),
+        
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
