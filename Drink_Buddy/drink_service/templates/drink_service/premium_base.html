@@ -13,13 +13,13 @@
     
     <title>Drink Buddy</title>
   </head>
-  <body>
-   
-    
+
+  <body>  
   <nav id="topNav" class="navbar navbar-expand-md navbar-light">
     <div class="container">
       <a class="navbar-brand" href="{% url 'home' %}">
-        <img src="{% static 'drink_service/logo.jpg' %}" width="40" height="40" class="d-inline-block align-top" alt="Drink_Buddy's Logo">
+        <img src="{% static 'drink_service/drink.jpg' %}" width="40" height="40" class="d-inline-block align-top" alt="Drink_Buddy's Logo">
+
         <span>Drink Buddy</span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,9 +33,11 @@
           <li class="nav-item">
             <a class="nav-link" href="">Search</a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="{% url 'Educational:all_educational' %}" target="_blank">Educational</a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="{% url 'home' %}" target="_blank">Sign-out</a>
           </li>        
@@ -43,16 +45,24 @@
       </div>
     </div>
   </nav>
-  <h3>
+
+<div class="username">
+  <h1>
   {% if user.is_authenticated %}
-  {{ user.username }} is logged in
+  Hi {{ user.username }}, welcome to Drink Buddy Premium!
   {% endif %}
-  </h3>
-  <div class="container">
-    {% block content %}{% endblock %}
-  </div>
+  </h1>
+</div>
+
+<div class="text_field">
+  <p>Unlock a world of exquisite flavors and endless possibilities with our Premium page, gaining exclusive access to curated drink options, ranging from rare spirits to artisanal cocktails. Elevate your knowledge as a connoisseur through our educational section, delving into fascinating facts and historical anecdotes from the captivating world of drinks. Experience the epitome of luxury with personalized recommendations, early access to limited editions, and preferential pricing as a Premium member.</p>
+  <p>Immerse yourself in a community of like-minded enthusiasts, connecting through interactive forums, live tastings, and valuable insights. Access a treasure trove of hidden gems, showcasing rare, boutique, and hard-to-find beverages, ensuring an extraordinary taste experience that keeps you one step ahead.</p>
+</div>
+
+<div class="container">
+  {% block content %}{% endblock %}
+</div>
 
   </body>
 </html>
-
 
