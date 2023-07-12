@@ -128,3 +128,16 @@ def get_matching_recipes(temperature, local_hour):
 
 def premium(request):
     return render(request, 'drink_service/premium.html')
+
+def recipe_detail(request, id):
+    recipe = Drink.objects.get(id=id)
+    return render(request, 'drink_service/recipe_detail.html', context={"recipe": recipe})
+
+def search(request):
+    context = {
+        'recipes': Drink.objects.all()
+    }
+    return render(request, 'drink_service/search.html', context)
+
+
+
