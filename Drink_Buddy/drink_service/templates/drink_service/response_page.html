@@ -9,26 +9,34 @@
 {% block content %}
     
 <body>
-    <ul>
-    <h1 class="heading">Results</h1>
+
+    <h1>Response Page</h1>
     <h2>Location: {{ location }}</h2>
-    <h3>Weather Information</h3>
-    <ul>Temperature:   {{ temperature }}</ul>
-    <ul>Description:   {{ description }}</ul>
-    <ul>Local Time:    {{ local_time }}</ul>
-    <ul>Icon: {{ icon_weather }}<img src="{{ icon_link }}" alt="Icon"></ul>
     
+    <h2>Weather Information</h2>
+    <p>Temperature: {{ temperature }}</p>
+    <p>Description: {{ description }}</p>
+    <p>Local Time: {{ local_time }}</p>
+    <p>Icon: {{ icon_weather }}</p>
+    <img src="{{ icon_link }}" alt="Icon">
+    
+    
+    <br>
+    <br>
     <h2>Here are your suggestions:</h2>
+    <br>
+    <br>
 
     {% for recipe in recipes %}
     <img src="{{ recipe.imagefile.url }}" alt="">
     <p>{{ recipe.name }}</p>
     <p>{{ recipe.ingredients }}</p>
     <p>{{ recipe.recipe }}</p>
-    {% endfor %}   
-    </ul>
+    {% endfor %}
+    <br>
 </body>
 <br>
+
 <div class="text-center">
     <b>Need more suggestions?</b> 
     <a href="{% url 'loginuser' %}">     Login here</a>
