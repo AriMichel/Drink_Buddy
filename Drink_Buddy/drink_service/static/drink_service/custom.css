@@ -106,5 +106,8 @@ html, body {
   color: #0e0e0e; /* Setting the text color */
 }
 
-
+.card-img-top {
+  width: 300px;
+  height: 300px;
+}
 
