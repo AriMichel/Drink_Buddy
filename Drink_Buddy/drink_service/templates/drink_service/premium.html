@@ -1,0 +1,18 @@
+{% extends 'drink_service/premium_base.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="location_info"></div>
+    <form method="post" action="{% url 'landing_page' %}">
+        {% csrf_token %}
+        <label for="location">Enter your location:</label>
+        <input type="text" name="location" id="location" required class="input-style">
+        <button class = 'buttons' type="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

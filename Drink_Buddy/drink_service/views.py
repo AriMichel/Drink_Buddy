@@ -11,41 +11,40 @@ from decouple import config
 
 def home(request):
     Drink = Drinks.objects.all()
-    return render(request, 'home/home.html', {'Drink': Drink})
+    return render(request, 'drink_service/home.html', {'Drink': Drink})
 
 def signup(request):
     if request.method == "GET":
-        return render(request,'home/signup.html',{'form':UserCreationForm()})
+        return render(request,'drink_service/signup.html',{'form':UserCreationForm()})
     else:
         if request.POST['password1'] == request.POST['password2']:
             try:
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('home')
+                return redirect('premium')
             except IntegrityError:
-                return render(request,'home/signup.html',{'form':UserCreationForm(), 'error':'That username already taken please choose another username'})
+                return render(request,'drink_service/signup.html',{'form':UserCreationForm(), 'error':'That username already taken please choose another username'})
         else:
-            return render(request,'home/signup.html',{'form':UserCreationForm(), 'error':'Password did not match'})
+            return render(request,'drink_service/signup.html',{'form':UserCreationForm(), 'error':'Password did not match'})
         
 def loginuser(request):
     if request.method == "GET":
-        return render(request,'home/loginuser.html',{'form':AuthenticationForm()})
+        return render(request,'drink_service/loginuser.html',{'form':AuthenticationForm()})
     else:
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
         if user is None:
-            return render(request,'home/loginuser.html', {'form':AuthenticationForm(), 'error': 'Username and password does not same'})
+            return render(request,'drink_service/loginuser.html', {'form':AuthenticationForm(), 'error': 'Username and password does not same'})
         else:
             login(request, user)
-            return redirect('home')
+            return redirect('premium')
 
 def landing_page(request):
     if request.method == 'POST':
         location = request.POST.get('location')
         UserLocation.objects.create(location=location)
         return redirect('response_page')
-    
-    return render(request, 'home/landing_page.html')
+    return render(request, 'drink_service/landing_page.html')
 
 def response_page(request):
     user_location = UserLocation.objects.latest('id')
@@ -85,7 +84,7 @@ def response_page(request):
         'icon_link': icon_link
     }
     
-    return render(request, 'home/response_page.html', context)
+    return render(request, 'drink_service/response_page.html', context)
     
 def get_weather_data(location):
     # Make an API call to retrieve weather information based on the location
@@ -128,6 +127,7 @@ def get_matching_recipes(temperature, local_hour):
     recipes = Drink.objects.filter(timeofday=time_range, temperatureoflocation=temperature_range)[:3]
     return recipes
 
+<<<<<<< HEAD
 
 def blog(request):
     return render(request, 'home/blog.html')
@@ -148,3 +148,7 @@ def educational(request):
 
 def reviews(request):
     return render(request, 'home/reviews.html')
+=======
+def premium(request):
+    return render(request, 'drink_service/premium.html')
+>>>>>>> Regine
