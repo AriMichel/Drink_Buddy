@@ -8,6 +8,7 @@ import requests
 from decouple import config
 
 
+
 def home(request):
     Drink = Drinks.objects.all()
     return render(request, 'home/home.html', {'Drink': Drink})
@@ -131,8 +132,16 @@ def get_matching_recipes(temperature, local_hour):
 def blog(request):
     return render(request, 'home/blog.html')
 
+def recipe_detail(request, id):
+    recipe = Drink.objects.get(id=id)
+    return render(request, 'home/recipe_detail.html', context={"recipe": recipe})
+
 def search(request):
-    return render(request, 'home/search.html')
+    context = {
+        'recipes': Drink.objects.all()
+    }
+    return render(request, 'home/search.html', context)
+
 
 def educational(request):
     return render(request, 'home/educational.html')

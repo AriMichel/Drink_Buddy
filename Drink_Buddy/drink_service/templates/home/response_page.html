@@ -25,8 +25,9 @@
     <h2>Here are your suggestions:</h2>
     <br>
     <br>
+    
     {% for recipe in recipes %}
-    <img src="{{ recipe.imagefile.url }}" alt="">
+    <img src="{{ recipe.imagefile.url }}" class="card-img-top" alt="">
     <p>{{ recipe.name }}</p>
     <p>{{ recipe.ingredients }}</p>
     <p>{{ recipe.recipe }}</p>
