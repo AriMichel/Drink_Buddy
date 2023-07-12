@@ -113,3 +113,7 @@ html, body {
   margin-right: 12%;
 }
 
+.card-img-top {
+  width: 300px;
+  height: 300px;
+}
