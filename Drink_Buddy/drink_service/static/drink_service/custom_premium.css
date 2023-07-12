@@ -109,11 +109,60 @@ html, body {
   padding: 50px; /* Added padding to create spacing around the text */
   color: #0e0e0e; /* Setting the text color */
   text-align: center;
-  margin-left: 12%;
-  margin-right: 12%;
 }
 
 .card-img-top {
   width: 300px;
   height: 300px;
 }
+
+/* styling the click here for more suggestions button on the premium page */
+.nav-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling of the recipes on Premium page */
+.card {
+  border: 1px solid #ccc;
+  padding: 2px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  border-radius: 10px; /* name card behind recipe image */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add box shadow */
+}
+
+.card:hover {
+  border-color: #ff0000; /* Hover border color */
+  transform: scale(1.1); /* To control the pop-up effect */
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  border-radius: 10px;/* border of recipe image */
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.1); /* Adjust the scale factor for the image pop-up effect */
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Add the following CSS to display three cards in a row */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-4 {
+  flex: 0 0 33.33%;
+  max-width: 33.33%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
