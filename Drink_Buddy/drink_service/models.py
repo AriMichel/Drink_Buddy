@@ -31,11 +31,11 @@ class Drink(models.Model):
     timeofday = models.CharField(max_length=100)
 
     def save(self):
-        super().save()
+            super().save()
 
-        img = Image.open(self.imagefile.path)
+            img = Image.open(self.imagefile.path)
 
-        if img.height > 200 or img.width > 150:
-            output_size = (200, 150)
-            img.thumbnail(output_size)
-            img.save(self.imagefile.path)
+            if img.height > 200 or img.width > 150:
+                output_size = (200, 150)
+                img.thumbnail(output_size)
+                img.save(self.imagefile.path)

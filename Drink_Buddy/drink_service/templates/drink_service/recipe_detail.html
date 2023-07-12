@@ -1,42 +1,35 @@
-{% extends "home/base_premium.html" %}
+{% extends "drink_service/premium_base.html" %}
 {% load static %}
 {% block content %}
     <title>Recipe Detail</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'drink_service/custom_premium.css' %}">
 </head>
 <body>
     <header>
         <h1>Recipe Detail</h1>
     </header>
     <main>
-        <img src="{{recipe.imagefile.url}}" class="card-img-top" alt="{{...}}">
+        <img src="{{ recipe.imagefile.url }}" class="card-img-top">
         <h2>{{ recipe.title }}</h2>
         <p>{{ recipe.description }}</p>
         <h3>Ingredients</h3>
         {{ recipe.ingredients }}
         <h3>Recipe</h3>
-        {{ recipe.recipe}}
+        {{ recipe.recipe }}
         <h3>Time Of The Year</h3>
-        {{ recipe.timeOfYear}}
+        {{ recipe.timeOfYear }}
         <h3>Time To Drink</h3>
-        {{ recipe.timeToDrink}}
+        {{ recipe.timeToDrink }}
         <h3>Social Situation</h3>
-        {{ recipe.socialSituation}}
+        {{ recipe.socialSituation }}
         <h3>Mood</h3>
-        {{ recipe.mood}}
+        {{ recipe.mood }}
         <h3>Temperature Of Location</h3>
-        {{ recipe.temperatureOfLocation}}
+        {{ recipe.temperatureOfLocation }}
         <h3>Time Of Day</h3>
-        {{ recipe.timeOfDay}}
-        
-      
-        <h3>Instructions:</h3>
-        <ol>
-            {% for step in recipe.instructions %}
-            <li>{{ step }}</li>
-            {% endfor %}
-        </ol>
+        {{ recipe.timeOfDay }}
     </main>
+</body>
     <footer>
         <p>Recipe App &copy; 2023</p>
     </footer>

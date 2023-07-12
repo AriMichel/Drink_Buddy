@@ -18,7 +18,6 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth import views as auth_views
 from drink_service import views
 from django.conf.urls.static import static
 from django.conf import settings
@@ -30,15 +29,8 @@ urlpatterns = [
     path("login/", views.loginuser, name='loginuser'),
     path("landing/", views.landing_page, name='landing_page'),
     path('response/', views.response_page, name= 'response_page'),
-<<<<<<< HEAD
-    path('blog/', views.blog, name= 'blog'),
-    path('educational/', views.educational, name= 'educational'),
-    path('reviews/', views.reviews, name= 'reviews'),
-    # path("recipe_detail/<int:id>/", views.recipe_detail, name='drink_service-detail')
-    path("", include('drink_service.urls')),
-=======
     path('premium/', views.premium, name= 'premium'),
     path('Educational/', include('Educational.urls')),
-        
->>>>>>> Regine
+    path("", include('drink_service.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
