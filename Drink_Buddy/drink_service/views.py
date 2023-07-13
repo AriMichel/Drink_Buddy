@@ -11,14 +11,14 @@ from decouple import config
 def home(request):
     Drink = Drinks.objects.all()
     return render(request, 'drink_service/home.html', {'Drink': Drink})
-       
+
 def loginuser(request):
     if request.method == "GET":
         return render(request,'drink_service/loginuser.html',{'form':AuthenticationForm()})
     else:
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
         if user is None:
-            return render(request,'drink_service/loginuser.html', {'form':AuthenticationForm(), 'error': 'Username and password does not same'})
+            return render(request,'drink_service/loginuser.html', {'form':AuthenticationForm(), 'error': 'Username and password do not match'})
         else:
             login(request, user)
             return redirect('premium')
