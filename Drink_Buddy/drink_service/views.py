@@ -4,7 +4,6 @@ from django.db import IntegrityError
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .forms import UserForm
 import requests
 from decouple import config
 
