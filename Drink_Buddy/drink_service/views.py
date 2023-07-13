@@ -23,7 +23,7 @@ def signup(request):
                 login(request, user)
                 return redirect('premium')
             except IntegrityError:
-                return render(request,'drink_service/signup.html',{'form':UserCreationForm(), 'error':'That username already taken please choose another username'})
+                return render(request,'drink_service/signup.html',{'form':UserCreationForm(), 'error':'Username already taken. Choose another username'})
         else:
             return render(request,'drink_service/signup.html',{'form':UserCreationForm(), 'error':'Password did not match'})
         
@@ -33,7 +33,7 @@ def loginuser(request):
     else:
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
         if user is None:
-            return render(request,'drink_service/loginuser.html', {'form':AuthenticationForm(), 'error': 'Username and password does not same'})
+            return render(request,'drink_service/loginuser.html', {'form':AuthenticationForm(), 'error': 'Username and password do not match'})
         else:
             login(request, user)
             return redirect('premium')
