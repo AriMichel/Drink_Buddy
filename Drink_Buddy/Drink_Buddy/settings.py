@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "drink_service.apps.DrinkServiceConfig",
     "Educational",
+    "user",
 ]
 
 MIDDLEWARE = [
