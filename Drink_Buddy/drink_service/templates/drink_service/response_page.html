@@ -7,20 +7,19 @@
     <link rel="stylesheet" type="text/css" href="{% static 'drink_service/custom.css' %}">
 </head>
 {% block content %}
-    
-<body>
 
-    <h1>Response Page</h1>
-    <h2>Location: {{ location }}</h2>
-    
-    <h2>Weather Information</h2>
-    <p>Temperature: {{ temperature }}</p>
-    <p>Description: {{ description }}</p>
-    <p>Local Time: {{ local_time }}</p>
-    <p>Icon: {{ icon_weather }}</p>
-    <img src="{{ icon_link }}" alt="Icon">
-    
-    
+<br>
+<br>
+<body>
+    <div class="text_field">
+        <h4>Location: {{ location }}</h4>
+        <h4>Weather Information</h4>
+        <p>Temperature: {{ temperature }}</p>
+        <p>Description: {{ description }}</p>
+        <p>Local Time: {{ local_time }}</p>
+        <p>Icon: {{ icon_weather }}</p>
+        <img src="{{ icon_link }}" alt="Icon">
+    </div>
     <br>
     <br>
     <h2>Here are your suggestions:</h2>
@@ -40,7 +39,7 @@
 
 <div class="text-center">
     <b>Need more suggestions?</b> 
-    <a href="{% url 'loginuser' %}">     Login here</a>
+    <a href="{% url 'loginuser' %}"> Login here</a>
 </div>
 
 <br>

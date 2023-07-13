@@ -47,7 +47,7 @@ html, body {
 
 /* Styles for the navbar */
 .navbar {
-    background-color: rgba(181, 247, 224, 0.551); /* Set the background color for the navbar */
+    background-color: rgba(181, 247, 224, 0.900); /* Set the background color for the navbar */
   }
 
 
@@ -68,10 +68,9 @@ html, body {
     font-weight: bold;      /* Make the text bold */
     color: #000;            /* Set the text color to black */
     font-size: 20px;        /* Adjust the font size to 20 pixels */
-  }
+}
 
-
-  /* Styles for the username welcome message for Premium account */
+/* Styles for the username welcome message for Premium account */
 .username{
   text-align: center;
   padding-top: 150px;
@@ -105,8 +104,16 @@ html, body {
 
 /* Setting background to text field */
 .text_field {
-  background-color: rgb(181, 247, 224, 0.551); /* Adjust the opacity as needed */
+  background-color: rgba(181, 247, 224, 0.900); /* Adjust the opacity as needed */
   padding: 50px; /* Added padding to create spacing around the text */
+  color: #0e0e0e; /* Setting the text color */
+  text-align: center;
+}
+
+/* Setting background to text field */
+.text_heading {
+  background-color: rgb(181, 247, 224, 0.900); /* Adjust the opacity as needed */
+  padding:1px;
   color: #0e0e0e; /* Setting the text color */
   text-align: center;
 }
@@ -116,7 +123,7 @@ html, body {
   height: 300px;
 }
 
-/* styling the click here for more suggestions button on the premium page */
+/* Styling the click here for more suggestions button on the premium page */
 .nav-link{
   display: flex;
   justify-content: center;
@@ -137,6 +144,7 @@ html, body {
   transform: scale(1.1); /* To control the pop-up effect */
 }
 
+/* Styling for the Recipe image */
 .card-img-top {
   width: 100%;
   height: auto;
@@ -148,6 +156,7 @@ html, body {
   transform: scale(1.1); /* Adjust the scale factor for the image pop-up effect */
 }
 
+/* Styling for the names of recipes under pictures */
 .card-title {
   margin-top: 0;
   margin-bottom: 0;
@@ -159,9 +168,10 @@ html, body {
   flex-wrap: wrap;
 }
 
-.col-md-4 {
-  flex: 0 0 33.33%;
-  max-width: 33.33%;
+/* Styling to reduce the number of recipes displayed on each row */
+.col {
+  flex: 0 0 20%;
+  max-width: 20%;
   padding: 10px;
   box-sizing: border-box;
 }
