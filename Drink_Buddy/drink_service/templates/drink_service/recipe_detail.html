@@ -6,7 +6,7 @@
 </head>
 <body>
     <header>
-        <h1>Recipe Detail</h1>
+        <h1>{{ recipe.name }}</h1>
     </header>
     <main>
         <img src="{{ recipe.imagefile.url }}" class="card-img-top">
@@ -16,21 +16,13 @@
         {{ recipe.ingredients }}
         <h3>Recipe</h3>
         {{ recipe.recipe }}
-        <h3>Time Of The Year</h3>
-        {{ recipe.timeofyear }}
-        <h3>Time To Drink</h3>
-        {{ recipe.timetodrink }}
-        <h3>Social Situation</h3>
-        {{ recipe.socialsituation }}
-        <h3>Mood</h3>
-        {{ recipe.mood }}
-        <h3>Temperature Of Location</h3>
-        {{ recipe.temperatureoflocation }}
-        <h3>Time Of Day</h3>
-        {{ recipe.timeofday }}
+        
+       
     </main>
 </body>
     <footer>
-        <p>Recipe App &copy; 2023</p>
+        <br>
+        <br>
+        <p>Drink Buddy &copy; 2023</p>
     </footer>
 {% endblock content %}
