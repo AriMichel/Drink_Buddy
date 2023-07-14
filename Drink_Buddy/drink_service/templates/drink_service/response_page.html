@@ -27,7 +27,7 @@
     <br>
     <br>
     {% for recipe in recipes %}
-        <div class="card" style="width: 368; height: 368;">
+        <div class="card">
             <img src="{{ recipe.imagefile.url }}" class="card-img-top" alt="">
             <p>{{ recipe.name }}</p>
             <p>{{ recipe.ingredients }}</p>
@@ -40,7 +40,7 @@
 
 <div class="text-center">
     <b>Need more suggestions?</b> 
-    <a href="{% url 'loginuser' %}">     Login here</a>
+    <a href="{% url 'login' %}">     Login here</a>
 </div>
 
 <br>
