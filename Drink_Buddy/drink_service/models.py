@@ -29,13 +29,3 @@ class Drink(models.Model):
     imagefile = models.ImageField(upload_to='images/recipes', blank= True, null=True)
     temperatureoflocation = models.CharField(max_length=100)
     timeofday = models.CharField(max_length=100)
-
-    def save(self):
-            super().save()
-
-            img = Image.open(self.imagefile.path)
-
-            if img.height > 200 or img.width > 150:
-                output_size = (200, 150)
-                img.thumbnail(output_size)
-                img.save(self.imagefile.path)
