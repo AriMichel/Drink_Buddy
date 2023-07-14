@@ -117,19 +117,23 @@ html, body {
 }
 
 .suggestions-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  .suggestions {
-    width: 300px;
-    height: 300px;
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-  .suggestions img {
-    width: 100%;
-    height: auto;
-  }
-  .suggestions p {
-    margin-top: 10px;
-  }
+  display: flex;
+  justify-content: space-between;
+}
+
+.suggestions {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.suggestions img {
+  width: 100%;
+  height: auto;
+}
+
+.suggestions p {
+  margin-top: 10px;
+}
+

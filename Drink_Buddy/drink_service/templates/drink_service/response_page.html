@@ -27,15 +27,14 @@
     <br>
     <div class="suggestions-container">
         {% for recipe in recipes %}
-        <div class="suggestions" style="width: 368; height: 368;">
-            <img src="{{ recipe.imagefile.url }}" class="card-img-top" alt="">
-            <p>{{ recipe.name }}</p>
-            <p>{{ recipe.ingredients }}</p>
-            <p>{{ recipe.recipe }}</p>
-        </div>
+          <div class="suggestions" style="width: 368; height: 368;">
+              <img src="{{ recipe.imagefile.url }}" class="card-img-top" alt="">
+              <p>{{ recipe.name }}</p>
+              <p>{{ recipe.ingredients }}</p>
+              <p>{{ recipe.recipe }}</p>
+          </div>
         {% endfor %}
     </div>
-    
     <br>
 </body>
 <br>
