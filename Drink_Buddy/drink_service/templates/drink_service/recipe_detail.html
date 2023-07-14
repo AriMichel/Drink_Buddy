@@ -1,4 +1,4 @@
-{% extends "drink_service/premium_base.html" %}
+{% extends "drink_service/premium_drink_base.html" %}
 {% load static %}
 {% block content %}
     <title>Recipe Detail</title>
@@ -6,7 +6,7 @@
 </head>
 <body>
     <header>
-        <h1>Recipe Detail</h1>
+        <h1>{{ recipe.name }}</h1>
     </header>
     <main>
         <img src="{{ recipe.imagefile.url }}" class="card-img-top">

@@ -1,11 +1,21 @@
-{% extends "drink_service/premium_base.html" %}
+{% extends "drink_service/premium_drink_base.html" %}
 {% load static %}
 {% block content %}
-</br>
-</br>
-<h1>Feel Good Drink Buddies!!</h1>
-</br>
-</br>
+<br>
+<br>
+<div class="username">
+    <br>
+    <h1>All Recipes</h1>
+    <br>
+    <h2>
+    {% if user.is_authenticated %}
+    Hi {{ user.username }}, welcome to Drink Buddy Premium!
+    {% endif %}
+    </h2>
+    <h2>Click any drink you like and see it's recipes</h2>
+</div>
+<br>
+<br>
 <div class="row">
     {% for recipe in recipes %}
     
@@ -20,5 +30,4 @@
         </div>
     {% endfor %}
 </div>
-
 {% endblock content %}
