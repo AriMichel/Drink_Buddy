@@ -133,11 +133,11 @@ def recipe_detail(request, id):
     recipe = Drink.objects.get(id=id)
     return render(request, 'drink_service/recipe_detail.html', context={"recipe": recipe})
 
-def search(request):
+def drinks(request):
     context = {
         'recipes': Drink.objects.all()
     }
-    return render(request, 'drink_service/search.html', context)
+    return render(request, 'drink_service/drinks.html', context)
 
 
 
