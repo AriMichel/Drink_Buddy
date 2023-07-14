@@ -25,12 +25,12 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name='home'),
-    path("signup/", views.signup, name='signup'),
     path("login/", views.loginuser, name='loginuser'),
     path("landing/", views.landing_page, name='landing_page'),
     path('response/', views.response_page, name= 'response_page'),
     path('premium/', views.premium, name= 'premium'),
     path('Educational/', include('Educational.urls')),
     path("", include('drink_service.urls')),
+    path('signup/', include('user.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Drinks, UserLocation, Drink
 from django.db import IntegrityError
 from django.contrib.auth.models import User
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 import requests
 from decouple import config
@@ -12,21 +12,6 @@ def home(request):
     Drink = Drinks.objects.all()
     return render(request, 'drink_service/home.html', {'Drink': Drink})
 
-def signup(request):
-    if request.method == "GET":
-        return render(request,'drink_service/signup.html',{'form':UserCreationForm()})
-    else:
-        if request.POST['password1'] == request.POST['password2']:
-            try:
-                user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
-                user.save()
-                login(request, user)
-                return redirect('premium')
-            except IntegrityError:
-                return render(request,'drink_service/signup.html',{'form':UserCreationForm(), 'error':'Username already taken. Choose another username'})
-        else:
-            return render(request,'drink_service/signup.html',{'form':UserCreationForm(), 'error':'Password did not match'})
-        
 def loginuser(request):
     if request.method == "GET":
         return render(request,'drink_service/loginuser.html',{'form':AuthenticationForm()})
@@ -133,11 +118,11 @@ def recipe_detail(request, id):
     recipe = Drink.objects.get(id=id)
     return render(request, 'drink_service/recipe_detail.html', context={"recipe": recipe})
 
-def search(request):
+def drinks(request):
     context = {
         'recipes': Drink.objects.all()
     }
-    return render(request, 'drink_service/search.html', context)
+    return render(request, 'drink_service/drinks.html', context)
 
 
 
