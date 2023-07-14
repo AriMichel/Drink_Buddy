@@ -1,0 +1,18 @@
+{% extends 'drink_service/premium_base.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="username">
+    <h1>
+    {% if user.is_authenticated %}
+    Hi {{ user.username }}, welcome to Drink Buddy Premium!
+    {% endif %}
+    </h1>
+</div>
+
+
+{% endblock %}
