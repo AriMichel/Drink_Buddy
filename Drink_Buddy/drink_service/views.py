@@ -124,5 +124,6 @@ def drinks(request):
     }
     return render(request, 'drink_service/drinks.html', context)
 
-
+def search(request):
+    return render(request, 'drink_service/search.html')
 
