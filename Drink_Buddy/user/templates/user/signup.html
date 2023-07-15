@@ -32,30 +32,11 @@
                     {% endfor %}
                 {% endfor %}
                 <label for="Email">Email</label>
-                <input type="email" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="email" id="reg_email" value="" required style="border: 1px solid black; padding: 10px; margin: 5px; border-radius: 10px; width: 300px;">
+                <input type="email" class="form-control" name="email" id="reg_email" value="" required style="border: 1px solid black; padding: 10px; margin: 5px; border-radius: 10px; width: 300px;">
             </div>
             <button class = 'buttons' type="submit" class="btn btn-primary">Sign up</button>
         </form>
         
     </div>
 </div>
-
-<!-- <h2>Sign up</h2>
- <form method="post">
-    {% csrf_token %}
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-    {% endfor %}
-    <button type="submit">Sign up</button>
-  </form> -->
-
 {% endblock %}
