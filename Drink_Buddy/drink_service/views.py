@@ -12,21 +12,6 @@ def home(request):
     Drink = Drinks.objects.all()
     return render(request, 'drink_service/home.html', {'Drink': Drink})
 
-def signup(request):
-    if request.method == "GET":
-        return render(request,'drink_service/signup.html',{'form':UserCreationForm()})
-    else:
-        if request.POST['password1'] == request.POST['password2']:
-            try:
-                user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
-                user.save()
-                login(request, user)
-                return redirect('premium')
-            except IntegrityError:
-                return render(request,'drink_service/signup.html',{'form':UserCreationForm(), 'error':'That username already taken please choose another username'})
-        else:
-            return render(request,'drink_service/signup.html',{'form':UserCreationForm(), 'error':'Password did not match'})
-        
 def loginuser(request):
     if request.method == "GET":
         return render(request,'drink_service/loginuser.html',{'form':AuthenticationForm()})
