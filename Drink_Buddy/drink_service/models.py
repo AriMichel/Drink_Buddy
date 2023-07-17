@@ -13,7 +13,6 @@ class Drinks(models.Model):
     def __str__(self):
         return self.title
     
-
 class Drink(models.Model):
     name = models.CharField(max_length=100)
     ingredients = models.TextField()
@@ -29,4 +28,4 @@ class Drink(models.Model):
     imagefile = models.ImageField(upload_to='images/recipes', blank= True, null=True)
     temperatureoflocation = models.CharField(max_length=100)
     timeofday = models.CharField(max_length=100)
-    
+
