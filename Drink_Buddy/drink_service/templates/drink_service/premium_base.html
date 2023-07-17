@@ -34,6 +34,9 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="{% url 'post-home' %}" target="_blank">Blog</a>
+
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'drinks' %}">Drinks</a>
           </li>
 
@@ -42,13 +45,15 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Sign-out</a>
-          </li>        
+            <a class="nav-link" href="{% url 'home' %}">Log-out</a>
+          </li>  
         </ul>
       </div>
     </div>
+    {% if user.is_authenticated %}
+    {{ user.username }}
+    {% endif %}
   </nav>
-
 <div class="container">
   {% block content %}{% endblock %}
 </div>
@@ -58,4 +63,3 @@
 
   </body>
 </html>
-

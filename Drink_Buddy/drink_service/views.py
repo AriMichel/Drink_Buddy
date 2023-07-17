@@ -2,26 +2,22 @@ from django.shortcuts import render, redirect
 from .models import Drinks, UserLocation, Drink
 from django.db import IntegrityError
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate,logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 import requests
 from decouple import config
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
     Drink = Drinks.objects.all()
     return render(request, 'drink_service/home.html', {'Drink': Drink})
-
-def loginuser(request):
-    if request.method == "GET":
-        return render(request,'drink_service/loginuser.html',{'form':AuthenticationForm()})
-    else:
-        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
-        if user is None:
-            return render(request,'drink_service/loginuser.html', {'form':AuthenticationForm(), 'error': 'Username and password do not match'})
-        else:
-            login(request, user)
-            return redirect('premium')
+        
+@login_required
+def logoutuser(request):
+    if request.method == 'POST': #make it quick
+        logout(request)
+        return redirect('home')
 
 def landing_page(request):
     if request.method == 'POST':
@@ -111,16 +107,19 @@ def get_matching_recipes(temperature, local_hour):
     recipes = Drink.objects.filter(timeofday=time_range, temperatureoflocation=temperature_range)[:3]
     return recipes
 
+@login_required
 def premium(request):
     return render(request, 'drink_service/premium.html')
 
+@login_required
 def recipe_detail(request, id):
     recipe = Drink.objects.get(id=id)
     return render(request, 'drink_service/recipe_detail.html', context={"recipe": recipe})
 
+
 def drinks(request):
     context = {
-        'recipes': Drink.objects.all()
+        'recipes': Drink.objects.all(),  
     }
     return render(request, 'drink_service/drinks.html', context)
 

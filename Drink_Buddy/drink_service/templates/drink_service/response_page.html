@@ -1,4 +1,4 @@
-{% extends 'drink_service/base.html' %}
+{% extends 'drink_service/premium_base.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -22,8 +22,8 @@
     </div>
     <br>
     <br>
+
     <h2>Here are your suggestions:</h2>
-    <br>
     <br>
     <div class="suggestions-container">
         {% for recipe in recipes %}
@@ -36,15 +36,18 @@
         {% endfor %}
     </div>
     <br>
+
 </body>
 <br>
 
 <div class="text-center">
     <b>Need more suggestions?</b> 
-    <a href="{% url 'loginuser' %}"> Login here</a>
+    <a href="{% url 'drinks' %}">     click here</a>
+
 </div>
 
 <br>
 <br>
 {% endblock %}
+
 </html>

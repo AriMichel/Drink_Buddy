@@ -3,9 +3,17 @@
 {% block content %}
 <br>
 <br>
-<br>
-<br>
-<h1>Take a glance at our drinks!</h1>
+<div class="username">
+    <br>
+    <h1>All Recipes</h1>
+    <br>
+    <h2>
+    {% if user.is_authenticated %}
+    Hi {{ user.username }}, welcome to Drink Buddy Premium!
+    {% endif %}
+    </h2>
+    <h2>Click any drink you like and see it's recipes</h2>
+</div>
 <br>
 <br>
 <div class="row">
@@ -21,5 +29,4 @@
     </div>
     {% endfor %}
 </div>
-
 {% endblock content %}
