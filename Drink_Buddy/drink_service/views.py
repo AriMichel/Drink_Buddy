@@ -12,17 +12,6 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     Drink = Drinks.objects.all()
     return render(request, 'drink_service/home.html', {'Drink': Drink})
-
-def loginuser(request):
-    if request.method == "GET":
-        return render(request,'drink_service/loginuser.html',{'form':AuthenticationForm()})
-    else:
-        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
-        if user is None:
-            return render(request,'drink_service/loginuser.html', {'form':AuthenticationForm(), 'error': 'Username and password do not match'})
-        else:
-            login(request, user)
-            return redirect('premium')
         
 @login_required
 def logoutuser(request):
@@ -127,7 +116,7 @@ def recipe_detail(request, id):
     recipe = Drink.objects.get(id=id)
     return render(request, 'drink_service/recipe_detail.html', context={"recipe": recipe})
 
-@login_required
+
 def drinks(request):
     context = {
         'recipes': Drink.objects.all(),  
