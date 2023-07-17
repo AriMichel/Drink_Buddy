@@ -5,19 +5,26 @@
     <link rel="stylesheet" href="{% static 'drink_service/custom_premium.css' %}">
 </head>
 <body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <header>
         <h1>{{ recipe.name }}</h1>
     </header>
-    <main>
-        <img src="{{ recipe.imagefile.url }}" class="card-img-top">
-        <h2>{{ recipe.title }}</h2>
-        <p>{{ recipe.description }}</p>
-        <h3>Ingredients</h3>
-        {{ recipe.ingredients }}
-        <h3>Recipe</h3>
-        {{ recipe.recipe }}
-
-        
+    <main class="trial">
+        <div class="result_image">
+            <img src="{{ recipe.imagefile.url }}" class="card-img-top">
+        </div>
+        <div class="text_field">
+            <h4>{{ recipe.title }}</h4>
+            <p>{{ recipe.description }}</p>
+            <h4>Ingredients</h4>
+            {{ recipe.ingredients }}
+            <h4>Recipe</h4>
+            {{ recipe.recipe }}
+        </div>           
     </main>
 </body>
     <footer>
