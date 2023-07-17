@@ -88,7 +88,6 @@ DATABASES = {
         "PORT": config('PORT'),
     }
 }
-<<<<<<< HEADngoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
