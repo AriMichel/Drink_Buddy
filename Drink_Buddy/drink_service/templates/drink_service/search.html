@@ -14,9 +14,11 @@
     </h1>
 </div>
 <div>
+    <br><br>
     <form method="GET" action="{% url 'search_drinks' %}">
         <input type="text" name="name" placeholder="Drink Name"  class="input-style">
         <input type="text" name="ingredients" placeholder="Ingredients"  class="input-style">
+        <br><br>
         <select name="temperature" class="input-style">
             <option value="">Temperature</option>
             <option value="20+">20+</option>
@@ -29,7 +31,7 @@
             <option value="5 to 11">5 to 11</option>
             <option value="12 to 23">12 to 23</option>
         </select>
-        
+        <br><br>
         <select name="time_of_year" class="input-style">
             <option value="">Time of Year</option>
             <option value="christmas">Christmas</option>
@@ -59,7 +61,7 @@
             <option value="cozy_night">Cozy Night at Home</option>
             <option value="drink_night">Cozy Drink Night</option>
         </select>
-    
+        <br><br>
         <select name="mood" class="input-style">
             <option value="">Mood</option>
             <option value="cheerful">Cheerful</option>
@@ -74,7 +76,7 @@
             <option value="energetic">Energetic</option>
             <option value="refreshing">Refreshing</option>
         </select>
-
+        
         <button class = 'buttons' type="submit">Search</button>
     </form>
     
