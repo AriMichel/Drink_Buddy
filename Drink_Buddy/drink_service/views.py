@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 import requests
 from decouple import config
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 
 def home(request):
@@ -117,13 +118,52 @@ def recipe_detail(request, id):
     return render(request, 'drink_service/recipe_detail.html', context={"recipe": recipe})
 
 
+# def drinks(request):
+#     context = {
+#         'recipes': Drink.objects.all() 
+#     }
+#     return render(request, 'drink_service/drinks.html', context)
+
+
 def drinks(request):
-    context = {
-        'recipes': Drink.objects.all(),  
-    }
-    return render(request, 'drink_service/drinks.html', context)
+    recipe = Drink.objects.all()
+    paginator = Paginator(recipe, 10)  # Show 10 pictures per page
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'drink_service/drinks.html', {'page_obj': page_obj})
 
 @login_required
-def search(request):
+def search_drinks(request):
+    if request.method == 'GET':
+        # Get the search parameters from the request
+        name = request.GET.get('name')
+        ingredients = request.GET.get('ingredients')
+        temperature = request.GET.get('temperature')
+        time_of_day = request.GET.get('time_of_day')
+        time_of_year = request.GET.get('time_of_year')
+        social_situation = request.GET.get('social_situation')
+        mood = request.GET.get('mood')
+        # Filter the drinks based on the search parameters
+        recipes = Drink.objects.all()
+        if name:
+            recipes = recipes.filter(name__icontains=name)
+        if ingredients:
+            recipes = recipes.filter(ingredients__icontains=ingredients)
+        if temperature:
+            recipes = recipes.filter(temperatureoflocation=temperature)
+        if time_of_day:
+            recipes = recipes.filter(timeofday=time_of_day)
+        if time_of_year:
+            recipes = recipes.filter(timeofyear__icontains=time_of_year)
+        if social_situation:
+            recipes = recipes.filter(socialsituation__icontains=social_situation)
+        if mood:
+            recipes = recipes.filter(mood__icontains=mood)
+        context = {
+            'recipes': recipes
+        }
+        return render(request, 'drink_service/search.html', context)
     return render(request, 'drink_service/search.html')
 

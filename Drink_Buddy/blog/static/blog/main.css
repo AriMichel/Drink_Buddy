@@ -1,4 +1,3 @@
-
 body {
     height: 100%;                   /* Set the height of HTML and body to 100% */
     margin: 10; 
@@ -91,4 +90,10 @@ body {
   
   .account-heading {
     font-size: 2.5rem;
+  }
+
+  .navbar-brand span {
+    font-weight: bold;      /* Make the text bold */
+    color: #000;            /* Set the text color to black */
+    font-size: 20px;        /* Adjust the font size to 20 pixels */
   }
