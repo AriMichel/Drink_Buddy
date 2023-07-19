@@ -31,16 +31,16 @@
           <div class="navbar-nav">
             {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'search_drinks' %}">Search</a>
+                <a class="nav-link" href="{% url 'drink_service:search_drinks' %}">Search</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'post-create' %}">New Post</a>
+                <a class="nav-link" href="{% url 'blog:post-create' %}">New Post</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'profile' %}">Profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'post-home' %}">Posts</a>
+                <a class="nav-link" href="{% url 'blog:post-home' %}">Posts</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}">Logout</a>

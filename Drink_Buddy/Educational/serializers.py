@@ -7,7 +7,6 @@ class EducationalSerializer(serializers.ModelSerializer):
         # fields = '__all__'
         fields = ['id', 'title', 'description', 'date','url']
 
-
 class EducationalHyperSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Educational

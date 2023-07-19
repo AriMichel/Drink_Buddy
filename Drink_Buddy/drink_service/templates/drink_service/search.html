@@ -14,7 +14,7 @@
     </h1>
 </div>
 <div>
-    <form method="GET" action="{% url 'search_drinks' %}">
+    <form method="GET" action="{% url 'drink_service:search_drinks' %}">
         <input type="text" name="name" placeholder="Drink Name"  class="input-style">
         <input type="text" name="ingredients" placeholder="Ingredients"  class="input-style">
         <select name="temperature" class="input-style">
@@ -83,7 +83,7 @@
             {% for recipe in recipes %}
                 <div class="col">
                     <div class="card">
-                        <a href="{% url 'drink_service-detail' recipe.id %}">
+                        <a href="{% url 'drink_service:drink_service-detail' recipe.id %}">
                         <img src="{{ recipe.imagefile.url }}" class="card-img-top"></a>
                         <div class="card-body">
                             <h5 class="card-title">{{ recipe.name }}</h5>
