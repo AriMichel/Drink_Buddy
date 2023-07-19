@@ -8,6 +8,9 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post
+from rest_framework import generics
+from .serializers import PostSerializer
+
 def post(request):
     context = {
         'posts': Post.objects.all()
@@ -60,3 +63,6 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
+class PostListAPIView(generics.ListAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
