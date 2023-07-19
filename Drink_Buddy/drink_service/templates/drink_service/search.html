@@ -3,9 +3,6 @@
 {% block content %}
 <br>
 <br>
-<br>
-<br>
-<br>
 <div class="username">
     <h1>
     {% if user.is_authenticated %}
@@ -29,6 +26,7 @@
             <option value="5 to 11">5 to 11</option>
             <option value="12 to 23">12 to 23</option>
         </select>
+
         <select name="time_of_year">
             <option value="">Time of Year</option>
             <option value="christmas">Christmas</option>
@@ -38,6 +36,7 @@
             <option value="fall">Fall</option>
             <option value="spring">Spring</option>
         </select>
+
         <select name="social_situation">
             <option value="">Social Situation</option>
             <option value="alone">Alone</option>
@@ -57,6 +56,7 @@
             <option value="cozy_night">Cozy Night at Home</option>
             <option value="drink_night">Cozy Drink Night</option>
         </select>
+
         <select name="mood">
             <option value="">Mood</option>
             <option value="cheerful">Cheerful</option>
@@ -71,13 +71,15 @@
             <option value="energetic">Energetic</option>
             <option value="refreshing">Refreshing</option>
         </select>
+
         <button type="submit">Search</button>
     </form>
+<br>
     {% if recipes %}
-        <ul>
+    <div class="row">
         {% for recipe in recipes %}
             <div class="col">
-                <div class="card">
+                <div class="card" style="width: 180px;">
                     <a href="{% url 'drink_service-detail' recipe.id %}">
                     <img src="{{ recipe.imagefile.url }}" class="card-img-top"></a>
                     <div class="card-body">
@@ -86,9 +88,54 @@
                 </div>
             </div>
         {% endfor %}
-        </ul>
+    </div>
+
     {% else %}
         <p>No drinks found.</p>
+
     {% endif %}
+
 </div>
+
+<div class="pagination"><h3>
+
+    <ul class="pagination">
+    {% if recipes.has_previous %}
+    <a href="?page={{ recipes.previous_page_number }}">Previous</a>
+    {% endif %}
+    {% if recipes.has_previous %}
+        <li><a href="?page={{ recipes.previous_page_number }}"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+    {% else %}
+        <li class="disabled"><span><i class="fa fa-chevron-left" aria-hidden="true"></i></span></li>
+    {% endif %}
+    
+    {% if recipes.number|add:'-4' > 1 %}
+        <li><a href="?page={{ recipes.number|add:'-5' }}">&hellip;</a></li>
+    {% endif %}
+    
+    {% for i in recipes.paginator.page_range %}
+        {% if recipes.number == i %}
+            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% elif i > recipes.number|add:'-5' and i < recipes.number|add:'5' %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+    {% endfor %}
+    
+    {% if recipes.paginator.num_pages > recipes.number|add:'4' %}
+        <li><a href="?page={{ recipes.number|add:'5' }}">&hellip;</a></li>
+    {% endif %}
+    
+    {% if recipes.has_next %}
+        <li><a href="?page={{ recipes.next_page_number }}"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+    {% else %}
+        <li class="disabled"><span><i class="fa fa-chevron-right" aria-hidden="true"></i></span></li>
+    {% endif %}
+    {% if recipes.has_next %}
+    <a href="?page={{ recipes.next_page_number }}">Next</a>
+     {% endif %}
+    </ul>
+</h3></div>
+
+<br>
+
 {% endblock %}

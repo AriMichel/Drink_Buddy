@@ -126,13 +126,13 @@ def recipe_detail(request, id):
 
 
 def drinks(request):
-    recipe = Drink.objects.all()
-    paginator = Paginator(recipe, 10)  # Show 10 pictures per page
+    recipes = Drink.objects.all()
+    paginator = Paginator(recipes, 10)  # Show 10 pictures per page
 
     page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    recipes = paginator.get_page(page_number)
 
-    return render(request, 'drink_service/drinks.html', {'page_obj': page_obj})
+    return render(request, 'drink_service/drinks.html', {'recipes': recipes})
 
 @login_required
 def search_drinks(request):
@@ -161,9 +161,11 @@ def search_drinks(request):
             recipes = recipes.filter(socialsituation__icontains=social_situation)
         if mood:
             recipes = recipes.filter(mood__icontains=mood)
-        context = {
-            'recipes': recipes
-        }
-        return render(request, 'drink_service/search.html', context)
-    return render(request, 'drink_service/search.html')
+        paginator = Paginator(recipes, 10)  # Show 10 pictures per page
+
+        page_number = request.GET.get('page')
+        recipes = paginator.get_page(page_number)
+        return render(request, 'drink_service/search.html', {'recipes': recipes})
+        
+    return render(request, 'drink_service/search.html', {'recipes': recipes})
 

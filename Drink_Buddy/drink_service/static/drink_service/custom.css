@@ -11,14 +11,12 @@ html, body {
     width: 100%;                    /* Set the width of HTML and body to 100% */
     margin: 10;                      /* Remove default margin */
     padding: 0;                     /* Remove default padding */
-    color: rgba(0, 0, 0, 0.782);     /* Set the text color */
-    text-align: left;              /* Set text alignment to right */
+    color: rgba(0, 0, 0, 0.782);     /* Set the text color */            /* Set text alignment to right */
     background-image: url('background_home.png');
     background-size:cover;
     font-family: 'Lato', sans-serif;
     background-image: scale(0.5);
     background-repeat: repeat;
-    text-align: left;
 }
 
 /* Set common styles for the HTML and body */
@@ -50,6 +48,9 @@ html, body {
 /* Styles for the navbar */
 .navbar {
     background-color: rgba(181, 247, 224, 0.900); /* Set the background color for the navbar */
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 /* Styles for the navbar brand */
@@ -98,34 +99,37 @@ html, body {
 
 /* Setting background to text field */
 .text_field {
-  background-color: rgb(181, 247, 224, 0.900); /* Adjust the opacity as needed */
-  padding: 50px; /* Added padding to create spacing around the text */
-  color: #0e0e0e; /* Setting the text color */
+    background-color: rgb(181, 247, 224, 0.900); /* Adjust the opacity as needed */
+    padding: 50px; /* Added padding to create spacing around the text */
+    color: #0e0e0e; /* Setting the text color */
 }
 
 .card-img-top {
-  width: 300px;
-  height: 300px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    border-radius: 10px; /* name card behind recipe image */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add box shadow */
 }
 
-.card {
-  border: 1px solid #ccc;
-  padding: 20px;
-  transition: border-color 0.3s ease, transform 0.3s ease;
-  border-radius: 10px; /* name card behind recipe image */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add box shadow */
+/* Image on the suggestion card */
+.card-img-top{
+    align-items: center;
+    justify-content: center;
 }
 
+/* Styling for the three suggestions without login */
 .suggestions-container {
   display: flex;
   justify-content: space-between;
 }
 
 .suggestions {
-  width: 300px;
-  height: 300px;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 20px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  border-radius: 10px; /* name card behind recipe image */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add box shadow */
 }
 
 .suggestions img {

@@ -8,7 +8,11 @@
     <header>
         <h1>{{ recipe.name }}</h1>
     </header>
+    <br>
+    <br>
+    <br>
     <main>
+        <div  style="width: 500px;">
         <img src="{{ recipe.imagefile.url }}" class="card-img-top">
         <h2>{{ recipe.title }}</h2>
         <p>{{ recipe.description }}</p>
@@ -16,8 +20,8 @@
         {{ recipe.ingredients }}
         <h3>Recipe</h3>
         {{ recipe.recipe }}
+        </div>
 
-        
     </main>
 </body>
     <footer>
