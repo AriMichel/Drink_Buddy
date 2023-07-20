@@ -40,4 +40,8 @@ size = (400, 600)  # Set the desired width and height
 
 # Call the resize_images function
 resize_images(input_folder, output_folder, size)
+<<<<<<< HEAD
 >>>>>>> 315d44705c95716b08e5cbdd9f5c7ef99fb89bec
+=======
+>>>>>>> Raman
+>>>>>>> 3bece1c72049cfedf9d630b1e0030670119fa109

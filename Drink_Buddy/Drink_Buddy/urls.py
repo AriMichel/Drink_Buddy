@@ -30,7 +30,11 @@ from Educational.api_views import EducationalViewSet, EducationalListAPIView, Ed
 
 router = routers.DefaultRouter()
 router.register('edu',EducationalViewSet)
+<<<<<<< HEAD
 >>>>>>> 315d44705c95716b08e5cbdd9f5c7ef99fb89bec
+=======
+>>>>>>> Raman
+>>>>>>> 3bece1c72049cfedf9d630b1e0030670119fa109
 
 router = routers.DefaultRouter()
 router.register('edu',EducationalViewSet)
@@ -53,7 +57,11 @@ urlpatterns = [
     path("", include('drink_service.urls', namespace='drink_service')),
     path("", include('blog.urls', namespace='blog')),
     path('Educational/', include('Educational.urls', namespace='Educational')),
+<<<<<<< HEAD
 >>>>>>> 315d44705c95716b08e5cbdd9f5c7ef99fb89bec
+=======
+>>>>>>> Raman
+>>>>>>> 3bece1c72049cfedf9d630b1e0030670119fa109
     path('edu_list/', include(router.urls)),
     path('api/v1/', EducationalListAPIView.as_view(), name='api-list-educational'),
     path('api/v1/create', EducationalCreateAPIView.as_view(), name='api-create-educational'),
@@ -64,5 +72,9 @@ urlpatterns = [
 
 =======
     
+<<<<<<< HEAD
 >>>>>>> 315d44705c95716b08e5cbdd9f5c7ef99fb89bec
+=======
+>>>>>>> Raman
+>>>>>>> 3bece1c72049cfedf9d630b1e0030670119fa109
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

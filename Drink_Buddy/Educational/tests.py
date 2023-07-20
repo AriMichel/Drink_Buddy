@@ -47,3 +47,9 @@ class EducationalViewTest(TestCase):
     def test_detail_view_with_invalid_id(self):
         response = self.client.get(reverse('Educational:detail', args=[0]))
         self.assertEqual(response.status_code, 404)
+<<<<<<< HEAD
+=======
+
+    # Add more test methods as needed
+
+>>>>>>> 3bece1c72049cfedf9d630b1e0030670119fa109
