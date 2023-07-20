@@ -50,3 +50,7 @@ class EducationalViewTest(TestCase):
 
     # Add more test methods as needed
 
+    def test_detail_view_with_nonexistent_id(self):
+        non_existent_id = 0
+        response = self.client.get(reverse('Educational:detail', args=[non_existent_id]))
+        self.assertEqual(response.status_code, 404)
