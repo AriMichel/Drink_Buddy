@@ -8,6 +8,7 @@ import requests
 from decouple import config
 from django.contrib.auth.decorators import login_required
 from PIL import Image
+from django.core.paginator import Paginator
 
 
 def home(request):
@@ -159,11 +160,14 @@ def search_drinks(request):
         if mood:
             recipes = recipes.filter(mood__icontains=mood)
 
-
         context = {
             'recipes': recipes
         }
+       
+        paginator = Paginator(recipes, 10)  # Show 10 pictures per page
 
-        return render(request, 'drink_service/search.html', context)
+        page_number = request.GET.get('page')
+        recipes = paginator.get_page(page_number)
+        return render(request, 'drink_service/search.html', {'recipes': recipes})
 
     return render(request, 'drink_service/search.html')
