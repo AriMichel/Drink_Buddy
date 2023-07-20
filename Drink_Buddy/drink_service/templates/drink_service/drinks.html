@@ -34,45 +34,53 @@
 </div>
 
 <br>
-    <div class="pagination"><h3>
-   
-        <ul class="pagination">
-        {% if recipes.has_previous %}
-        <a href="?page={{ recipes.previous_page_number }}">Previous</a>
-        {% endif %}
-        {% if recipes.has_previous %}
-            <li><a href="?page={{ recipes.previous_page_number }}"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
-        {% else %}
-            <li class="disabled"><span><i class="fa fa-chevron-left" aria-hidden="true"></i></span></li>
-        {% endif %}
-        
-        {% if recipes.number|add:'-4' > 1 %}
-            <li><a href="?page={{ recipes.number|add:'-5' }}">&hellip;</a></li>
-        {% endif %}
-        
-        {% for i in recipes.paginator.page_range %}
-            {% if recipes.number == i %}
-                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-            {% elif i > recipes.number|add:'-5' and i < recipes.number|add:'5' %}
-                <li><a href="?page={{ i }}">{{ i }}</a></li>
-            {% endif %}
-        {% endfor %}
-        
-        {% if recipes.paginator.num_pages > recipes.number|add:'4' %}
-            <li><a href="?page={{ recipes.number|add:'5' }}">&hellip;</a></li>
-        {% endif %}
-        
-        {% if recipes.has_next %}
-            <li><a href="?page={{ recipes.next_page_number }}"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-        {% else %}
-            <li class="disabled"><span><i class="fa fa-chevron-right" aria-hidden="true"></i></span></li>
-        {% endif %}
-        {% if recipes.has_next %}
-        <a href="?page={{ recipes.next_page_number }}">Next</a>
-         {% endif %}
-        </ul>
-    </h3></div>
+<div class="container">
+    <nav aria-label="Recipe Pagination">
+      <ul class="pagination justify-content-center">
 
+        {% if recipes.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ recipes.previous_page_number }}" aria-label="Previous">
+            Previous
+          </a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+          <span class="page-link" aria-hidden="true">&laquo;</span>
+        </li>
+        {% endif %}
+
+        {% for i in recipes.paginator.page_range %}
+          {% if recipes.number == i %}
+          <li class="page-item active">
+            <span class="page-link">{{ i }}</span>
+          </li>
+          {% else %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+          </li>
+          {% endif %}
+        {% endfor %}
+
+        {% if recipes.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ recipes.next_page_number }}" aria-label="Next">
+            Next
+          </a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+          <span class="page-link" aria-hidden="true">&raquo;</span>
+        </li>
+        {% endif %}
+
+      </ul>
+    </nav>
+  </div>
+</body>
+</html>
+
+</div>
 <br>
-{% endblock content %}
+{% endblock %}
 

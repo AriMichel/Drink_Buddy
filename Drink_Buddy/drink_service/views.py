@@ -108,11 +108,11 @@ def get_matching_recipes(temperature, local_hour):
     recipes = Drink.objects.filter(timeofday=time_range, temperatureoflocation=temperature_range)[:3]
     return recipes
 
-@login_required
+
 def premium(request):
     return render(request, 'drink_service/premium.html')
 
-@login_required
+
 def recipe_detail(request, id):
     recipe = Drink.objects.get(id=id)
     return render(request, 'drink_service/recipe_detail.html', context={"recipe": recipe})
@@ -134,7 +134,7 @@ def drinks(request):
 
     return render(request, 'drink_service/drinks.html', {'recipes': recipes})
 
-@login_required
+
 def search_drinks(request):
     if request.method == 'GET':
         # Get the search parameters from the request

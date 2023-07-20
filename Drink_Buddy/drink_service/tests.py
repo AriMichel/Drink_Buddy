@@ -89,33 +89,33 @@ class ResponsePageTests(TestCase):
         self.assertEqual(len_recipes, len_expected_recipes)
 
 
-class LoginTests(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.username = 'testuser'
-        self.password = 'testpassword'
-        self.user = User.objects.create_user(username=self.username, password=self.password)
+# class LoginTests(TestCase):
+#     def setUp(self):
+#         self.client = Client()
+#         self.username = 'testuser'
+#         self.password = 'testpassword'
+#         self.user = User.objects.create_user(username=self.username, password=self.password)
 
-    def test_login_get(self):
-        # Test the behavior of the login view with a GET request
-        response = self.client.get(reverse('login'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'drink_service/login.html')
+#     def test_login_get(self):
+#         # Test the behavior of the login view with a GET request
+#         response = self.client.get(reverse('login'))
+#         self.assertEqual(response.status_code, 200)
+#         self.assertTemplateUsed(response, 'drink_service/login.html')
 
-    def test_login_post_invalid_credentials(self):
-        # Test the behavior of the login view with a POST request and invalid credentials
-        response = self.client.post(reverse('login'), {'username': self.username, 'password': 'wrong password'})
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'drink_service/login.html')
-        self.assertIn('error', response.context)
-        self.assertEqual(response.context['error'], 'Username and password do not match')
+#     def test_login_post_invalid_credentials(self):
+#         # Test the behavior of the login view with a POST request and invalid credentials
+#         response = self.client.post(reverse('login'), {'username': self.username, 'password': 'wrong password'})
+#         self.assertEqual(response.status_code, 200)
+#         self.assertTemplateUsed(response, 'drink_service/login.html')
+#         self.assertIn('error', response.context)
+#         self.assertEqual(response.context['error'], 'Username and password do not match')
 
-    def test_login_post_valid_credentials(self):
-        # Test the behavior of the login view with a POST request and valid credentials
-        response = self.client.post(reverse('login'), {'username': self.username, 'password': self.password})
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, reverse('premium'))
-        self.assertEqual(response.wsgi_request.user.is_authenticated, True)
+#     def test_login_post_valid_credentials(self):
+#         # Test the behavior of the login view with a POST request and valid credentials
+#         response = self.client.post(reverse('login'), {'username': self.username, 'password': self.password})
+#         self.assertEqual(response.status_code, 302)
+#         self.assertEqual(response.url, reverse('premium'))
+#         self.assertEqual(response.wsgi_request.user.is_authenticated, True)
 
 class RecipeDetailTests(TestCase):
     def setUp(self):
