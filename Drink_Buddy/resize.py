@@ -26,9 +26,18 @@ def resize_images(input_folder, output_folder, size):
             print(f"Failed to resize {file_name}: {str(e)}")
 
 # Set the input folder, output folder, and desired size
+<<<<<<< HEAD
+input_folder = "/home/dci-student/Final_Project/Drink_Buddy/Drink_Buddy/media/images/recipes/"
+output_folder = "/home/dci-student/Final_Project/Drink_Buddy/Drink_Buddy/media/images/recipes2/"
+size = (400, 600)  # Set the desired width and height
+
+# Call the resize_images function
+resize_images(input_folder, output_folder, size)
+=======
 input_folder = "/home/user/Desktop/Final_Project/Drink_Buddy/Drink_Buddy/media/images/recipes/"
 output_folder = "/home/user/Desktop/Final_Project/Drink_Buddy/Drink_Buddy/media/images/recipes2/"
 size = (400, 600)  # Set the desired width and height
 
 # Call the resize_images function
 resize_images(input_folder, output_folder, size)
+>>>>>>> Raman

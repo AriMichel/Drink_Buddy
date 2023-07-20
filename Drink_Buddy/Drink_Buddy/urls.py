@@ -25,10 +25,15 @@ from django.conf import settings
 from users import views as user_views
 from rest_framework import routers
 from Educational.api_views import EducationalViewSet, EducationalListAPIView, EducationalDetailAPIView, EducationalCreateAPIView, EducationalUpdateAPIView,EducationalDeleteAPIView
+<<<<<<< HEAD
+=======
 
 router = routers.DefaultRouter()
 router.register('edu',EducationalViewSet)
+>>>>>>> Raman
 
+router = routers.DefaultRouter()
+router.register('edu',EducationalViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -40,14 +45,24 @@ urlpatterns = [
     path("landing/", views.landing_page, name='landing_page'),
     path('response/', views.response_page, name= 'response_page'),
     path('premium/', views.premium, name= 'premium'),
+<<<<<<< HEAD
+    path("", include('drink_service.urls')),
+    path("", include('blog.urls')),
+    path('Educational/', include('Educational.urls')),
+=======
     path("", include('drink_service.urls', namespace='drink_service')),
     path("", include('blog.urls', namespace='blog')),
     path('Educational/', include('Educational.urls', namespace='Educational')),
+>>>>>>> Raman
     path('edu_list/', include(router.urls)),
     path('api/v1/', EducationalListAPIView.as_view(), name='api-list-educational'),
     path('api/v1/create', EducationalCreateAPIView.as_view(), name='api-create-educational'),
     path('api/v1/<int:pk>', EducationalDetailAPIView.as_view(), name='api-detail-educational'),
     path('api/v1/update/<int:pk>', EducationalUpdateAPIView.as_view(), name='api-update-educational'),
     path('api/v1/delete/<int:pk>', EducationalDeleteAPIView.as_view(), name='api-delete-educational'),
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> Raman
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

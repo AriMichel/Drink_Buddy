@@ -15,7 +15,11 @@
 </div>
 <div>
     <br><br>
+<<<<<<< HEAD
+    <form method="GET" action="{% url 'search_drinks' %}">
+=======
     <form method="GET" action="{% url 'drink_service:search_drinks' %}">
+>>>>>>> Raman
         <input type="text" name="name" placeholder="Drink Name"  class="input-style">
         <input type="text" name="ingredients" placeholder="Ingredients"  class="input-style">
         <br><br>
@@ -61,7 +65,11 @@
             <option value="cozy_night">Cozy Night at Home</option>
             <option value="drink_night">Cozy Drink Night</option>
         </select>
+<<<<<<< HEAD
+        <br><br>
+=======
     <br><br>
+>>>>>>> Raman
         <select name="mood" class="input-style">
             <option value="">Mood</option>
             <option value="cheerful">Cheerful</option>
@@ -76,7 +84,7 @@
             <option value="energetic">Energetic</option>
             <option value="refreshing">Refreshing</option>
         </select>
-
+        
         <button class = 'buttons' type="submit">Search</button>
     </form>
     

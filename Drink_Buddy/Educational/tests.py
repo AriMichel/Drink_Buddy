@@ -4,7 +4,6 @@ from .models import Educational
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
 
-
 class EducationalModelTest(TestCase):
     def setUp(self):
         self.educational = Educational.objects.create(
