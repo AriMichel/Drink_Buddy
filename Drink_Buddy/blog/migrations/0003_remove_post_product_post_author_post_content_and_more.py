@@ -18,24 +18,4 @@ class Migration(migrations.Migration):
             model_name='post',
             name='product',
         ),
-        migrations.AddField(
-            model_name='post',
-            name='author',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
-        ),
-        migrations.AddField(
-            model_name='post',
-            name='content',
-            field=models.TextField(blank=True, null=True),
-        ),
-        migrations.AddField(
-            model_name='post',
-            name='date_posted',
-            field=models.DateTimeField(default=django.utils.timezone.now),
-        ),
-        migrations.AddField(
-            model_name='post',
-            name='title',
-            field=models.CharField(blank=True, max_length=100, null=True),
-        ),
     ]

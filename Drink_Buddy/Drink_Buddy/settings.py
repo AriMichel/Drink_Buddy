@@ -42,15 +42,7 @@ INSTALLED_APPS = [
     "Educational",
     "blog.apps.BlogConfig",
     "users.apps.UsersConfig",
-<<<<<<< HEAD
     "rest_framework",
-=======
-    "rest_framework"
-<<<<<<< HEAD
->>>>>>> 315d44705c95716b08e5cbdd9f5c7ef99fb89bec
-=======
->>>>>>> Raman
->>>>>>> 3bece1c72049cfedf9d630b1e0030670119fa109
 ]
 
 MIDDLEWARE = [
