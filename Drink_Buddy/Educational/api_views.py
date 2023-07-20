@@ -29,5 +29,9 @@ class EducationalViewSet(viewsets.ModelViewSet):
 
 class EducationalDeleteAPIView(generics.DestroyAPIView):
     queryset = Educational.objects.all()
+<<<<<<< HEAD
     serializer_class = EducationalSerializer
     
+=======
+    serializer_class = EducationalSerializer
+>>>>>>> Raman

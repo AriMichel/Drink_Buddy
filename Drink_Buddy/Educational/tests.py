@@ -14,11 +14,12 @@ class EducationalModelTest(TestCase):
 
     def test_educational_model_str(self):
         self.assertEqual(str(self.educational), 'Test Title')
-    
+
     def test_educational_model_fields(self):
         self.assertEqual(self.educational.title, 'Test Title')
         self.assertEqual(self.educational.description, 'Test Description')
         self.assertEqual(self.educational.date, timezone.now().date())
+
 
 class EducationalViewTest(TestCase):
     def setUp(self):
@@ -28,22 +29,24 @@ class EducationalViewTest(TestCase):
             description='Test Description',
             date='2023-01-01'
         )
-        
+
     def test_all_educational_view(self):
         response = self.client.get(reverse('Educational:all_educational'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'Educational/all_educational.html')
         self.assertContains(response, 'Test Title')
         self.assertContains(response, 'Test Description')
-    
+
     def test_detail_view(self):
         response = self.client.get(reverse('Educational:detail', args=[self.insight.pk]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'Educational/detail.html')
         self.assertContains(response, 'Test Title')
         self.assertContains(response, 'Test Description')
-    
+
     def test_detail_view_with_invalid_id(self):
         response = self.client.get(reverse('Educational:detail', args=[0]))
         self.assertEqual(response.status_code, 404)
+
     # Add more test methods as needed
+

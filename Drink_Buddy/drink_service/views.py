@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 import requests
 from decouple import config
 from django.contrib.auth.decorators import login_required
+from PIL import Image
 
 
 def home(request):
