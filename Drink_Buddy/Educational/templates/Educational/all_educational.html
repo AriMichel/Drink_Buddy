@@ -3,15 +3,20 @@
 {% block content %}
 
 <br>
-<div class="text_heading">
+<div>
+  <br>
+  <br>
+  <br>
   <h1 id="blogtitle" class="font-weight-bold text-center">Insights</h1>
   <h5 class="text-center mb-5">Drink Buddy has written {{ Insights.count }} Insight{{ Insights.count|pluralize }}</h5>
 </div>
 
 {% for Insight in Insights %}
 
-  <div class="row justify-content-center my-3">
-    <div class="text_field">
+  <div>
+    <div>
+      <br>
+      <hr>
       <a href="{% url 'Educational:detail' Insight.id %}">
         <h4>{{ Insight.title }}</h4>
       </a>

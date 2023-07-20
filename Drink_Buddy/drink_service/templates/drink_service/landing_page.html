@@ -1,4 +1,4 @@
-{% extends 'drink_service/base.html' %}
+{% extends 'drink_service/premium_base.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -6,10 +6,15 @@
     <title>Landing Page</title>
 </head>
 <body>
+    
 {% block content %}
-
+<br>
+<br>
+<br>
+<br>
+<br>
 <hr>
-    <div class="text_field">
+    <div><h4>
     <p>At <b>Drink Buddy</b>, we are a team of dedicated individuals who developed this app as part of our final project in a one-year programming course. Our goal was to revolutionize the way people enjoy their beverages.</p>
     <p>Our app aims to provide personalized drink suggestions based on the weather and time of your location. With just a few simple inputs, you'll receive tailored recommendations to enhance your drinking experience.</p>
     <p>We understand that choosing the right drink can be a daunting task, so we've made it effortless for you. Whether it's a scorching summer day or a chilly winter evening, our app has the perfect suggestion to match your mood and the environment.</p>
@@ -19,7 +24,7 @@
     <p>Join our community of beverage enthusiasts and embark on a delightful journey through flavors, weather, and time. Cheers to great drinks, memorable experiences, and the joy of discovery!</p>
     <p>If you have any questions, feedback, or suggestions, our friendly support team is here to assist you. We strive to ensure that your experience with our app is nothing short of exceptional.</p>
     <p>Thank you for choosing <b>Drink Buddy</b>. Let's raise a glass and toast to the exciting world of drinks!</p>
-    </div>
+    </h4></div>
 
     <br>
     <form method="post" action="{% url 'landing_page' %}">

@@ -3,15 +3,18 @@
 {% block content %}
 
 <br>
+<br>
 
-<div class="text_heading">
+<div><br>
     <h3 class="text-center mt-5" id="blogdetailtitle">{{ Insight.title }}</h3>
     <h5 class="text-center text-muted mb-5">{{ Insight.date|date:'F jS Y' }}</h5>
 </div>
 
 <hr>
-<div class="text_field">
+<div><h4>
     {{ Insight.description|safe }}
     <a href="{{ Insight.url }}">Link to Wikipedia</a>
-</div>
+</h4></div>
+<br>
+<br>
 {% endblock %}

@@ -141,3 +141,15 @@ html, body {
   margin-top: 10px;
 }
 
+
+.result_image{
+    height: 30%;
+    width: 30%;
+  }
+
+.col {
+    flex: 0 0 20%;
+    max-width: 20%;
+    padding: 10px;
+    box-sizing: border-box;
+}
