@@ -1,7 +1,4 @@
 from django.db import models
-from PIL import Image
-import tempfile
-import os
 
 class UserLocation(models.Model):
     location = models.CharField(max_length=100)
@@ -14,12 +11,6 @@ class Drinks(models.Model):
 
     def __str__(self):
         return self.title
-
-
-def compress_image(image):
-    img = Image.open(image.path)
-    # Adjust the compression level as needed (0-100)
-    img.save(image.path, optimize=True, quality=40)
              
 class Drink(models.Model):
     name = models.CharField(max_length=100)
@@ -37,10 +28,3 @@ class Drink(models.Model):
     temperatureoflocation = models.CharField(max_length=100)
     timeofday = models.CharField(max_length=100)
 
-
-    
-    def save(self, *args, **kwargs):
-        if self.imagefile:
-            compress_image(self.imagefile)
-
-        super().save(*args, **kwargs)
