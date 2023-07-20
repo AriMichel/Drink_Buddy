@@ -29,10 +29,6 @@ from Educational.api_views import EducationalViewSet, EducationalListAPIView, Ed
 router = routers.DefaultRouter()
 router.register('edu',EducationalViewSet)
 
-
-router = routers.DefaultRouter()
-router.register('edu',EducationalViewSet)
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name='home'),
