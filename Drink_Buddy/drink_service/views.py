@@ -160,11 +160,7 @@ def search_drinks(request):
         if mood:
             recipes = recipes.filter(mood__icontains=mood)
 
-        context = {
-            'recipes': recipes
-        }
-       
-        paginator = Paginator(recipes, 10)  # Show 10 pictures per page
+        paginator = Paginator(recipes, 10)
 
         page_number = request.GET.get('page')
         recipes = paginator.get_page(page_number)
