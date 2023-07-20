@@ -9,4 +9,4 @@ def all_educational(request):
 
 def detail(request, Insight_id):
     Insight = get_object_or_404(Educational, pk= Insight_id)
-    return render(request, 'Educational/detail.html',{'Insight':Insight})
+    return render(request, 'Educational/detail.html', {'Insight':Insight})

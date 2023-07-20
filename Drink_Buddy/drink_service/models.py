@@ -1,5 +1,4 @@
 from django.db import models
-from PIL import Image
 
 class UserLocation(models.Model):
     location = models.CharField(max_length=100)
@@ -12,7 +11,7 @@ class Drinks(models.Model):
 
     def __str__(self):
         return self.title
-    
+             
 class Drink(models.Model):
     name = models.CharField(max_length=100)
     ingredients = models.TextField()

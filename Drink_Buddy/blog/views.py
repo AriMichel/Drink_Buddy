@@ -8,6 +8,7 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post
+
 def post(request):
     context = {
         'posts': Post.objects.all()

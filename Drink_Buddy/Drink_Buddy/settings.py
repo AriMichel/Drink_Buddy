@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     "Educational",
     "blog.apps.BlogConfig",
     "users.apps.UsersConfig",
+<<<<<<< HEAD
     "rest_framework",
+=======
+    "rest_framework"
+>>>>>>> 315d44705c95716b08e5cbdd9f5c7ef99fb89bec
 ]
 
 MIDDLEWARE = [

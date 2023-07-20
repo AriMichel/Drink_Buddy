@@ -30,4 +30,3 @@ class EducationalViewSet(viewsets.ModelViewSet):
 class EducationalDeleteAPIView(generics.DestroyAPIView):
     queryset = Educational.objects.all()
     serializer_class = EducationalSerializer
-    
