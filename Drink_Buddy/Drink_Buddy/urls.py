@@ -29,9 +29,6 @@ from Educational.api_views import EducationalViewSet, EducationalListAPIView, Ed
 router = routers.DefaultRouter()
 router.register('edu',EducationalViewSet)
 
-router = routers.DefaultRouter()
-router.register('edu',EducationalViewSet)
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name='home'),
@@ -42,12 +39,9 @@ urlpatterns = [
     path("landing/", views.landing_page, name='landing_page'),
     path('response/', views.response_page, name= 'response_page'),
     path('premium/', views.premium, name= 'premium'),
-    path("", include('drink_service.urls')),
-    path("", include('blog.urls')),
-    path('Educational/', include('Educational.urls')),
     path("", include('drink_service.urls', namespace='drink_service')),
     path("", include('blog.urls', namespace='blog')),
-    path('Educational/', include('Educational.urls', namespace='Educational')),
+    path('Educational/', include('Educational.urls')),
     path('edu_list/', include(router.urls)),
     path('api/v1/', EducationalListAPIView.as_view(), name='api-list-educational'),
     path('api/v1/create', EducationalCreateAPIView.as_view(), name='api-create-educational'),
