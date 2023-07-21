@@ -9,6 +9,7 @@ from decouple import config
 from django.contrib.auth.decorators import login_required
 from PIL import Image
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 def home(request):
     Drink = Drinks.objects.all()
@@ -74,7 +75,7 @@ def response_page(request):
         'recipes': recipes,
         'icon_link': icon_link
     }
-        
+
     return render(request, 'drink_service/response_page.html', context)
     
 def get_weather_data(location):
@@ -94,7 +95,6 @@ def get_local_time_data(location):
     response = requests.get(url)
     time_data = response.json()
     return time_data
-
 
 def get_matching_recipes(temperature, local_hour):
     # Get matching recipes from the database based on temperature and local time ranges
@@ -126,7 +126,6 @@ def premium(request):
 def recipe_detail(request, id):
     recipe = Drink.objects.get(id=id)
     return render(request, 'drink_service/recipe_detail.html', context={"recipe": recipe})
-
 
 def drinks(request):
     context = {
@@ -169,11 +168,10 @@ def search_drinks(request):
         if mood:
             recipes = recipes.filter(mood__icontains=mood)
 
+        paginator = Paginator(recipes, 10)
 
-        context = {
-            'recipes': recipes
-        }
-
-        return render(request, 'drink_service/search.html', context)
+        page_number = request.GET.get('page')
+        recipes = paginator.get_page(page_number)
+        return render(request, 'drink_service/search.html', {'recipes': recipes})
 
     return render(request, 'drink_service/search.html')

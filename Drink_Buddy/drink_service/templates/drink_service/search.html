@@ -100,5 +100,50 @@
 
     {% endif %}
 
+    <br><br><br>
+    <div class="container">
+      <nav aria-label="Recipe Pagination">
+        <ul class="pagination justify-content-center">
+  
+          {% if recipes.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ recipes.previous_page_number }}" aria-label="Previous">
+              Previous
+            </a>
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+            <span class="page-link" aria-hidden="true">&laquo;</span>
+          </li>
+          {% endif %}
+  
+          {% for i in recipes.paginator.page_range %}
+            {% if recipes.number == i %}
+            <li class="page-item active">
+              <span class="page-link">{{ i }}</span>
+            </li>
+            {% else %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+            </li>
+            {% endif %}
+          {% endfor %}
+  
+          {% if recipes.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ recipes.next_page_number }}" aria-label="Next">
+              Next
+            </a>
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+            <span class="page-link" aria-hidden="true">&raquo;</span>
+          </li>
+          {% endif %}
+  
+        </ul>
+      </nav>
+      <br><br>
+    </div>
 </div>
 {% endblock %}
