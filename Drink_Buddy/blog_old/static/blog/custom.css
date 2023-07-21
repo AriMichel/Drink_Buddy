@@ -6,14 +6,18 @@
     color: rgba(0,0,0,.5) !important;
 }
 
-body {
-    background-image: url('premium_background.png');
+html, body {
+    height: 100%;                   /* Set the height of HTML and body to 100% */
+    margin: 10;                      /* Remove default margin */
+    padding: 0;                     /* Remove default padding */
+    color: rgba(0, 0, 0, 0.782);     /* Set the text color */
+    text-align: left;              /* Set text alignment to right */
+    background-image: url('background_home.png');
     background-size:cover;
     font-family: 'Lato', sans-serif;
     background-image: scale(0.5);
     background-repeat: repeat;
     text-align: left;
-
 }
 
 
@@ -36,7 +40,6 @@ html, body {
     transition: transform 0.3s;     /* Add transition for smooth hover effect on transform */
   }
 
-
 /* Styles for the navigation links on hover */
 .navbar-nav .nav-link:hover {
     background-color: rgba(243, 247, 5, 0.409); /* Change background color on hover */
@@ -44,11 +47,11 @@ html, body {
     /* Add any other styles you want for the hover effect */
 }
 
-
 /* Styles for the navbar */
 .navbar {
     background-color: rgba(181, 247, 224, 0.551); /* Set the background color for the navbar */
   }
+
 
 
 /* Styles for the navbar brand */
@@ -70,13 +73,6 @@ html, body {
     font-size: 20px;        /* Adjust the font size to 20 pixels */
   }
 
-
-  /* Styles for the username welcome message for Premium account */
-.username{
-  text-align: center;
-  padding-top: 150px;
-  font-weight: bold;
-}
 
 /* Styles for the buttons on all pages */
 .buttons{
@@ -108,13 +104,10 @@ html, body {
   background-color: rgb(181, 247, 224, 0.551); /* Adjust the opacity as needed */
   padding: 50px; /* Added padding to create spacing around the text */
   color: #0e0e0e; /* Setting the text color */
-  text-align: center;
-  margin-left: 12%;
-  margin-right: 12%;
 }
 
 .card-img-top {
-  width: 220px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
 }
 

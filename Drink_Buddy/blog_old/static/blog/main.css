@@ -1,3 +1,4 @@
+
 body {
     height: 100%;                   /* Set the height of HTML and body to 100% */
     margin: 10; 
@@ -5,7 +6,7 @@ body {
     padding: 0;                     /* Remove default padding */
     color: rgba(0, 0, 0, 0.782);     /* Set the text color */
     text-align: left;              /* Set text alignment to right */
-    background-image: url('background_home.png');
+    background-image: url('premium_background.png');
     background-size:cover;
     font-family: 'Lato', sans-serif;
     background-image: scale(0.5);
@@ -91,18 +92,3 @@ body {
   .account-heading {
     font-size: 2.5rem;
   }
-
-  .navbar-brand span {
-    font-weight: bold;      /* Make the text bold */
-    color: #000;            /* Set the text color to black */
-    font-size: 20px;        /* Adjust the font size to 20 pixels */
-  }
-  .navbar {
-    background-color: rgba(181, 247, 224, 0.900); /* Set the background color for the navbar */
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-
-
-

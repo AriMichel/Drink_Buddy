@@ -5,10 +5,11 @@ from .views import (
     PostCreateView,
     PostUpdateView,
     PostDeleteView,
+    PostListAPIView,
     UserPostListView
 )
 from . import views
-from .views import PostListAPIView
+ 
 
 app_name = 'blog'
 
@@ -20,6 +21,4 @@ urlpatterns = [
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('post/api/', PostListAPIView.as_view(), name='post-api_list'),
-
-    
 ]
