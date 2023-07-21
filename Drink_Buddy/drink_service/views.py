@@ -31,30 +31,35 @@ def landing_page(request):
 def response_page(request):
     user_location = UserLocation.objects.latest('id')
     location = user_location.location
-     
-    # Make API call to retrieve weather information
-    weather_data = get_weather_data(location)
+    api_key = config('WEATHER_API_KEY')
+    url = f'http://api.weatherapi.com/v1/current.json?key={api_key}&q={location}&aqi=no'
+    response = requests.get(url)
     
-    # Extract required weather data
-    temperature = weather_data['current']['temp_c']
-    description = weather_data['current']['condition']['text']
-    time_data = weather_data['location']['localtime']
-    icon_weather = weather_data['current']['condition']['icon']
-    icon_link = 'https://' + icon_weather
-
-    # Make API call to retrieve local time information
-    local_time = time_data.split()[1]  # Extract time from datetime string
-
-    # Extract local hour
-    local_hour = int(local_time.split(':')[0])
-    #local_hour = int(local_time[:1])
+    try:
+        #response.status_code==200
+        # Make API call to retrieve weather information
+         
+        weather_data = get_weather_data(location)
+        # Extract required weather data
+        temperature = weather_data['current']['temp_c']
+        description = weather_data['current']['condition']['text']
+        time_data = weather_data['location']['localtime']
+        icon_weather = weather_data['current']['condition']['icon']
+        icon_link = 'https://' + icon_weather
+        # Make API call to retrieve local time information
+        local_time = time_data.split()[1]  # Extract time from datetime string
+        # Extract local hour
+        local_hour = int(local_time.split(':')[0])
+        #local_hour = int(local_time[:1])
+        
+        # Extract required weather data
+        temperature = weather_data['current']['temp_c']
     
-    # Extract required weather data
-    temperature = weather_data['current']['temp_c']
- 
-    # Get matching recipes from the database
-    recipes = get_matching_recipes(temperature, local_hour)
-
+        # Get matching recipes from the database
+        recipes = get_matching_recipes(temperature, local_hour)
+    except:
+        return render(request, 'drink_service/home.html',{'error': 'Invalid Location name'})
+      
     context = {
         'location': location,
         'temperature': temperature,
@@ -65,9 +70,9 @@ def response_page(request):
         'recipes': recipes,
         'icon_link': icon_link
     }
-    
+        
     return render(request, 'drink_service/response_page.html', context)
-    
+
 def get_weather_data(location):
     # Make an API call to retrieve weather information based on the location
     # Replace 'API_KEY' with your actual API key
