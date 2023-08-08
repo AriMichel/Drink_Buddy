@@ -71,7 +71,7 @@ class PostViewTest(TestCase):
         self.client.login(username = 'testuser', password = 'testpassword')
         response = self.client.post(reverse('post-delete',args = [self.post_id]))
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('home'))
+        self.assertRedirects(response, reverse('post-home'))
     
 
 

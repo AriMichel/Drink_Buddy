@@ -36,11 +36,10 @@ class UserPostListView(ListView):
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date_posted')
-        
+
 
 class PostDetailView(DetailView):
     model = Post
-
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
@@ -68,7 +67,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
-    success_url = '/'
+    success_url = '/post/'
 
     def test_func(self):
         post = self.get_object()

@@ -10,6 +10,7 @@ from .views import (
 from . import views
 from .views import PostListAPIView
 
+
 urlpatterns = [
     path('post/', PostListView.as_view(), name='post-home'),
     path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),

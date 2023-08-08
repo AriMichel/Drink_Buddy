@@ -47,5 +47,5 @@ urlpatterns = [
     path('api/v1/<int:pk>', EducationalDetailAPIView.as_view(), name='api-detail-educational'),
     path('api/v1/update/<int:pk>', EducationalUpdateAPIView.as_view(), name='api-update-educational'),
     path('api/v1/delete/<int:pk>', EducationalDeleteAPIView.as_view(), name='api-delete-educational'),
-    
+   
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
