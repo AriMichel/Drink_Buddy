@@ -15,10 +15,14 @@
     </p>
     <form method="post" action="{% url 'landing_page' %}">
     {% csrf_token %}
+    {{ error }}
+    <br><br>
     <label for="location">Enter your location:</label>
     <input type="text" name="location" id="location" required class="input-style">
     <button class = 'buttons' type="submit">Submit</button>
     </form>
 </div>
+
 {% endblock %}
+
 
